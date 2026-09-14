@@ -10,7 +10,6 @@
     <packaging>jar</packaging>
 
     <name>GlowDuels</name>
-    <description>Ultimate FunTime-style Duels Plugin for Minecraft 1.16.5 - 26.2</description>
 
     <properties>
         <java.version>1.8</java.version>
