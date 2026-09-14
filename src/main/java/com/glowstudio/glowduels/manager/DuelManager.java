@@ -1,5 +1,6 @@
 package com.glowstudio.glowduels.manager;
 
+import com.glowstudio.glowduels.GlowDuelsPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
