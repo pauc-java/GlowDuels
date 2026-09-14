@@ -1,21 +1,7 @@
-name: YooDuels
-version: 1.0
-main: dev.yooproject.yooduels.YooPlugin
-api-version: '1.16'
-authors: [YooProject]
-description: Плагин на Дуэли с FunTime
-website: dsc.gg/yooproject
-depend:
-  - BLib
-  - BruhRelog
-  - PlayerPoints
-permissions:
-  yooduels.use:
-    default: op
-  yooduels.keepinventory:
-    default: op
+name: GlowDuels
+version: 1.0.0
+main: com.glowstudio.glowduels.GlowDuelsPlugin
+api-version: 1.16
 commands:
-  duel:
-    aliases:
-      - duels
-  yooduels: {}
+  duels:
+    aliases: [duel, 1vs1]
