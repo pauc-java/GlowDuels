@@ -1,0 +1,10 @@
+protect:
+  license-key: "" # Уникальный ключ который выдал вам автор
+
+mysql: # Тип базы данных. Есть SQLite, H2 и MySQL
+  type: SQLite
+  host: "localhost" # Хост MySQL-сервера
+  port: 3306 # Порт MySQL-сервера
+  database: "yooduels" # Имя базы данных
+  user: "root" # Имя пользователя для подключения
+  password: "password" # Пароль пользователя

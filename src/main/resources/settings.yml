@@ -1,0 +1,167 @@
+spawn:
+  world: spawn
+  cords:
+    x: 0.0
+    y: 90.0
+    z: 0.0
+    yaw: 0.0
+    pitch: 0.0
+
+tab-completer-list:
+  1:
+    - accept
+    - deny
+    - ignore
+    - team
+    - cancel
+    - "{player}"
+  2:
+    team:
+      - create
+      - invite
+      - kick
+      - leave
+      - disband
+      - info
+      - code
+      - join
+      - search
+      - accept
+      - deny
+      - help
+      - cancel
+      - war
+  3:
+    invite:
+      - "{player}"
+    kick:
+      - "{player}"
+    cancel:
+      - "{player}"
+    war:
+      - "{player}"
+      - "accept"
+      - "deny"
+      - "cancel"
+
+duel:
+  allowed-commands:
+    - /duel leave
+    - /duel early
+    - /duel ignore
+    - /trap-skins
+    - /tpskins
+    - /tpskin
+    - /trap-skin
+    - /clan pvp
+    - /hub
+    - /duel draw
+    - /duel surrender
+    - /cc
+    - /clan chat
+    - /msg
+    - /r
+  request-timeout: 60 # В секундах
+  tournament:
+    min-players-for-each-team:
+      enable: true
+      num: 5
+    start-time:
+      hour: 17
+      minute: 0
+      zone: "Europe/Moscow"
+    start-commands:
+      - "clear {player}"
+      - "fkit war {player}"
+    finish-commands:
+      - "p give {player} 25000"
+
+bossbars:
+  win:
+    title: "&aДуэль завершена! У вас есть {time} секунд, чтобы собрать ресурсы."
+    color: GREEN
+    style: SEGMENTED_6
+    time: 60
+  search:
+    default:
+      title: "&x&3&C&7&C&F&FП&x&3&C&7&A&F&Fо&x&3&B&7&9&F&Fи&x&3&B&7&7&F&Fс&x&3&A&7&5&F&Fк &x&3&9&7&2&F&FО&x&3&9&7&1&F&Fб&x&3&8&6&F&F&Fы&x&3&8&6&D&F&Fч&x&3&7&6&C&F&Fн&x&3&7&6&A&F&Fо&x&3&6&6&8&F&Fй &x&3&5&6&5&F&Fд&x&3&5&6&3&F&Fу&x&3&4&6&2&F&Fэ&x&3&4&6&0&F&Fл&x&3&4&5&F&F&Fи &x&3&3&5&B&F&Fз&x&3&2&5&A&F&Fа&x&3&2&5&8&F&Fк&x&3&1&5&6&F&Fо&x&3&1&5&5&F&Fн&x&3&0&5&3&F&Fч&x&3&0&5&1&F&Fи&x&2&F&5&0&F&Fт&x&2&F&4&E&F&Fс&x&2&E&4&C&F&Fя &x&2&D&4&9&F&Fч&x&2&D&4&8&F&Fе&x&2&C&4&6&F&Fр&x&2&C&4&4&F&Fе&x&2&B&4&3&F&Fз&x&F&E&F&E&0&0 {time} секунд."
+      color: BLUE
+      style: SEGMENTED_20
+      time: 60
+    ranking:
+      title: "&x&F&B&A&1&0&8П&x&F&B&A&3&0&8о&x&F&B&A&6&0&8и&x&F&B&A&8&0&7с&x&F&B&A&B&0&7к &x&F&B&A&F&0&7Р&x&F&B&B&2&0&7е&x&F&B&B&4&0&6й&x&F&B&B&7&0&6т&x&F&B&B&9&0&6и&x&F&B&B&C&0&6н&x&F&B&B&E&0&6г&x&F&B&C&0&0&5о&x&F&B&C&3&0&5в&x&F&B&C&5&0&5о&x&F&B&C&8&0&5й &x&F&B&C&C&0&4д&x&F&B&C&F&0&4у&x&F&A&D&1&0&4э&x&F&A&D&4&0&4л&x&F&A&D&6&0&3и &x&F&A&D&B&0&3з&x&F&A&D&D&0&3а&x&F&A&E&0&0&3к&x&F&A&E&2&0&2о&x&F&A&E&4&0&2н&x&F&A&E&7&0&2ч&x&F&A&E&9&0&2и&x&F&A&E&C&0&2т&x&F&A&E&E&0&1с&x&F&A&F&1&0&1я &x&F&A&F&5&0&1ч&x&F&A&F&8&0&1е&x&F&A&F&A&0&0р&x&F&A&F&D&0&0е&x&F&A&F&F&0&0з&x&F&B&C&4&0&8 {time} секунд."
+      color: YELLOW
+      style: SEGMENTED_20
+      time: 60
+    team:
+      title: "&x&0&0&B&9&F&FП&x&0&6&B&7&F&Fо&x&0&C&B&4&F&Fи&x&1&2&B&2&F&Fс&x&1&8&B&0&F&Fк &x&2&5&A&B&F&FК&x&2&B&A&9&F&Fо&x&3&1&A&6&F&Fм&x&3&7&A&4&F&Fа&x&3&D&A&1&F&Fн&x&4&3&9&F&F&Fд&x&4&9&9&D&F&Fн&x&4&F&9&A&F&Fо&x&5&6&9&8&F&Fй &x&6&2&9&3&F&Fд&x&6&8&9&1&F&Fу&x&6&E&8&F&F&Fэ&x&7&4&8&C&F&Fл&x&7&A&8&A&F&Fи &x&8&6&8&5&F&Fз&x&8&C&8&3&F&Fа&x&9&3&8&1&F&Fк&x&9&9&7&E&F&Fо&x&9&F&7&C&F&Fн&x&A&5&7&A&F&Fч&x&A&B&7&7&F&Fи&x&B&1&7&5&F&Fт&x&B&7&7&2&F&Fс&x&B&D&7&0&F&Fя &x&C&A&6&B&F&Fч&x&D&0&6&9&F&Fе&x&D&6&6&7&F&Fр&x&D&C&6&4&F&Fе&x&E&2&6&2&F&Fз &x&F&E&F&F&0&0{time} секунд."
+      color: BLUE
+      style: SEGMENTED_20
+      time: 60
+  waiting:
+    players:
+      title: "&eОжидание игроков..."
+      color: YELLOW
+      style: SOLID
+      time: 4
+      waiting-time: 4
+    personal:
+      title: "&eОжидание игроков..."
+      color: YELLOW
+      style: SEGMENTED_6
+      time: 5
+    default:
+      title: "&9Поиск обычной дуэль закончится через &e{time}"
+      color: BLUE
+      style: SEGMENTED_6
+      time: 60
+    ranking:
+      title: "&eПоиск рейтинговой дуэль закончится через &9{time}"
+      color: YELLOW
+      style: SEGMENTED_6
+      time: 60
+  starting:
+    title: "&x&0&0&7&3&F&FД&x&0&0&7&1&F&Fу&x&0&0&6&F&F&Fэ&x&0&0&6&D&F&Fл&x&0&0&6&B&F&Fь &x&0&0&6&7&F&Fн&x&0&0&6&5&F&Fа&x&0&0&6&2&F&Fч&x&0&0&6&0&F&Fн&x&0&0&5&E&F&Fё&x&0&0&5&C&F&Fт&x&0&0&5&A&F&Fс&x&0&0&5&8&F&Fя &x&0&0&5&4&F&Fч&x&0&0&5&2&F&Fе&x&0&0&5&0&F&Fр&x&0&0&4&E&F&Fе&x&0&0&4&C&F&Fз {time} &x&0&0&4&5&F&Fс&x&0&0&4&3&F&Fе&x&0&0&4&1&F&Fк&x&0&0&3&F&F&Fу&x&0&0&3&D&F&Fн&x&0&0&3&B&F&Fд&x&0&0&3&9&F&Fу"
+    color: BLUE
+    style: SEGMENTED_6
+    time: 5
+  started:
+    personal:
+      title: "&x&B&E&0&0&D&2Л&x&C&4&0&0&C&Aи&x&C&A&0&0&C&2ч&x&D&0&0&0&B&9н&x&D&6&0&0&B&1а&x&D&C&0&0&A&9я &x&E&7&0&0&9&9д&x&E&D&0&0&9&1у&x&F&3&0&0&8&8э&x&F&9&0&0&8&0л&x&F&F&0&0&7&8ь"
+      color: PURPLE
+      style: SEGMENTED_20
+    default:
+      title: "&x&0&8&A&1&F&BО&x&0&7&9&D&F&Bб&x&0&7&9&9&F&Cы&x&0&6&9&5&F&Cч&x&0&5&9&1&F&Cн&x&0&5&8&D&F&Dа&x&0&4&8&A&F&Dя &x&0&3&8&2&F&Eд&x&0&2&7&E&F&Eу&x&0&1&7&A&F&Eэ&x&0&1&7&6&F&Fл&x&0&0&7&2&F&Fь"
+      color: BLUE
+      style: SEGMENTED_20
+    ranking:
+      title: "&x&F&B&A&1&0&8Р&x&F&B&A&7&0&8е&x&F&B&A&D&0&7й&x&F&B&B&3&0&7т&x&F&B&B&9&0&6и&x&F&B&B&E&0&6н&x&F&B&C&4&0&5г&x&F&B&C&A&0&5о&x&F&B&D&0&0&4в&x&F&A&D&6&0&4а&x&F&A&D&C&0&3я &x&F&A&E&8&0&2д&x&F&A&E&D&0&2у&x&F&A&F&3&0&1э&x&F&A&F&9&0&1л&x&F&A&F&F&0&0ь"
+      color: YELLOW
+      style: SEGMENTED_20
+    team:
+      title: "&x&0&0&9&6&F&FК&x&0&E&9&4&F&Dо&x&1&D&9&1&F&Aм&x&2&B&8&F&F&8а&x&3&9&8&D&F&5н&x&4&7&8&B&F&3д&x&5&6&8&8&F&0н&x&6&4&8&6&E&Eа&x&7&2&8&4&E&Cя &x&8&F&7&F&E&7д&x&9&D&7&D&E&4у&x&A&B&7&B&E&2э&x&B&A&7&8&D&Fл&x&C&8&7&6&D&Dь"
+      color: BLUE
+      style: SEGMENTED_20
+    blood:
+      title: "&x&8&F&0&0&0&0К&x&9&6&0&C&0&Bр&x&9&D&1&8&1&6о&x&A&4&2&4&2&2в&x&A&B&3&1&2&Dа&x&B&2&3&D&3&8в&x&B&9&4&9&4&3о&x&C&0&5&5&4&Eе&x&C&7&6&1&5&A &x&C&E&6&D&6&5с&x&D&5&7&9&7&0р&x&D&C&8&5&7&Bа&x&E&3&9&2&8&6ж&x&E&A&9&E&9&1е&x&F&1&A&A&9&Dн&x&F&8&B&6&A&8и&x&F&F&C&2&B&3е"
+      color: RED
+      style: SEGMENTED_20
+
+history-limit: 5
+
+history-format:
+  PERSONAL: "&x&F&F&0&0&7&2[Личная] &fБой с &x&F&F&0&0&0&0{opponent} {result} &7{time}"
+  RANKING: "&x&F&F&E&6&0&0[Рейтинговая] &fБой с &x&F&F&0&0&0&0{opponent} {result} &7{time}"
+  DEFAULT: "&x&0&0&A&0&F&F[Обычная] &fБой с &x&F&F&0&0&0&0{opponent} {result} &7{time}"
+  TEAM: "&x&9&B&D&F&F&F[Командная] &fБой &x&F&F&E&C&0&0{team1_size}x{team2_size} игроков {result} &7{time}"
+  BLOOD: "&x&F&F&0&0&0&0[Кровавое] &fБой &x&F&F&E&C&0&0{team1_size}x{team2_size} игроков {result} &7{time}"
+
+history-result:
+  WIN: "&x&0&0&F&F&2&A[Победа]"
+  LOSS: "&x&F&F&0&0&0&0[Поражение]"
+  DRAW: "&x&8&C&F&F&F&2[Ничья]"
+history-time-format: "dd.MM.yyyy HH:mm"
+
+bet-settings:
+  min-bet: 100.0
+  max-bet: 1000000000.0

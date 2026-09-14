@@ -1,0 +1,208 @@
+messages:
+  not-in-duel: "&x&f&b&0&0&0&0[✘] Ошибка! &fВы не являетесь дуэлянтом!"
+  tournament:
+    not-enough-players:
+      - "Не начато! Игроков мало, сейчас {current} а надо минимум {min} в каждой команде"
+    won:
+      - " &#430D00╔&#4B0C00═&#540B00═&#5C0A00╦&#640900═&#6D0800═&#750700╦&#7D0500═&#860400═&#8E0300╦&#960200═&#9F0100═&#A70000╦&#9F0100═&#960200═&#8E0300╦&#860400═&#7D0500═&#750700╦&#6D0800═&#640900═&#5C0A00╦&#540B00═&#4B0C00═&#430D00╗"
+      - " &#430D00║"
+      - " &#430D00║&#FFFFE6     &#430D00&k|||&x&F&F&7&A&0&0   [Кровавое сражение]   &#430D00&k|||"
+      - ' &#430D00║&#FFFFE6   &#FFFFE6 Победила {team} &fкоманда!'
+      - ' &#430D00║&#FFFFE6   &#FFFFE6Каждый получил по &x&F&E&F&E&0&0250 Жагриков&f!'
+      - ' &#430D00║'
+      - ' &#430D00╚&#4B0C00═&#540B00═&#5C0A00╩&#640900═&#6D0800═&#750700╩&#7D0500═&#860400═&#8E0300╩&#960200═&#9F0100═&#A70000╩&#9F0100═&#960200═&#8E0300╩&#860400═&#7D0500═&#750700╩&#6D0800═&#640900═&#5C0A00╩&#540B00═&#4B0C00═&#430D00╝'
+    join:
+      too_early: "<color:#fb6500>[⚔] <white>Регистрация начинается за 1 час до начала!"
+      team-is-full: "<color:#fb6500>[⚔] <white>Команда уже полная!"
+      already: "<color:#fb6500>[⚔] <white>Вы уже находитесь в команде!"
+      not-joined: "<color:#fb6500>[⚔] <white>Вы не находитесь в какой либо команде!"
+      bc: "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{player} <white>присоеденился к &x&F&F&7&A&0&0Кровавому сражению&f! &7(/duel tournament)"
+      player: "<color:#fb6500>[⚔] <white>Вы успешно &x&F&E&F&E&0&0присоеденились <white>к &x&F&F&7&A&0&0{team} &fкоманде!"
+    left: "<color:#fb6500>[⚔] <white>Вы успешно покинули команду!"
+    start:
+      delay:
+        - " &#430D00╔&#4B0C00═&#540B00═&#5C0A00╦&#640900═&#6D0800═&#750700╦&#7D0500═&#860400═&#8E0300╦&#960200═&#9F0100═&#A70000╦&#9F0100═&#960200═&#8E0300╦&#860400═&#7D0500═&#750700╦&#6D0800═&#640900═&#5C0A00╦&#540B00═&#4B0C00═&#430D00╗"
+        - " &#430D00║"
+        - " &#430D00║&#FFFFE6     &#430D00&k|||&x&F&F&7&A&0&0   [Кровавое сражение]   &#430D00&k|||"
+        - ' &#430D00║&#FFFFE6   Начнется уже через&#FF0000 {delay}!'
+        - ' &#430D00║&#FFFFE6         &7(/duel tournament)'
+        - ' &#430D00║'
+        - ' &#430D00╚&#4B0C00═&#540B00═&#5C0A00╩&#640900═&#6D0800═&#750700╩&#7D0500═&#860400═&#8E0300╩&#960200═&#9F0100═&#A70000╩&#9F0100═&#960200═&#8E0300╩&#860400═&#7D0500═&#750700╩&#6D0800═&#640900═&#5C0A00╩&#540B00═&#4B0C00═&#430D00╝'
+      start:
+        - " &#430D00╔&#4B0C00═&#540B00═&#5C0A00╦&#640900═&#6D0800═&#750700╦&#7D0500═&#860400═&#8E0300╦&#960200═&#9F0100═&#A70000╦&#9F0100═&#960200═&#8E0300╦&#860400═&#7D0500═&#750700╦&#6D0800═&#640900═&#5C0A00╦&#540B00═&#4B0C00═&#430D00╗"
+        - " &#430D00║"
+        - " &#430D00║&#FFFFE6     &#430D00&k|||&x&F&F&7&A&0&0   [Кровавое сражение]   &#430D00&k|||"
+        - ' &#430D00║&#FFFFE6   &#FFFFE6              Началось!'
+        - ' &#430D00║'
+        - ' &#430D00╚&#4B0C00═&#540B00═&#5C0A00╩&#640900═&#6D0800═&#750700╩&#7D0500═&#860400═&#8E0300╩&#960200═&#9F0100═&#A70000╩&#9F0100═&#960200═&#8E0300╩&#860400═&#7D0500═&#750700╩&#6D0800═&#640900═&#5C0A00╩&#540B00═&#4B0C00═&#430D00╝'
+  duel-help:
+    - "<color:#fb6500>[⚔] <white>/duel - эта команда"
+    - "<color:#fb6500>[⚔] <white>/duel early - покинуть дуэль досрочно и вернуться на исходный сервер"
+    - "<color:#fb6500>[⚔] <white>/duel surrender - сдаться"
+  team-war:
+    target-not-in-team: "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{target} <white>не находится в какой то команде!"
+    invite-send:
+      - "<color:#fb6500>[⚔] <white>Запрос на &x&F&F&7&A&0&0Кровавое сражение <white>успешно отправлен команде игрока &x&F&E&F&E&0&0{target}&f!"
+      - "              <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы отменить запрос'><click:run_command:/duel team war cancel {target}><color:#E40000>[Отменить запрос]</click>"
+    request:
+      - "<color:#fb6500>[⚔] <white>Лидер команды &x&F&E&F&E&0&0{target} <white>отправил вам запрос на &x&F&F&7&A&0&0Кровавое сражение&f!"
+      - "          <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы отклонить'><click:run_command:/duel team war deny {target}><color:#E40000>[Отклонить]</click> <hover:show_text:'<color:#0DE400>➥ Нажмите<white>, чтобы принять'><click:run_command:/duel team war accept {target}><color:#0DE400>[Принять]</click>"
+    deny: "<color:#fb6500>[⚔] <white>Вы успешно отказали игроку &x&F&E&F&E&0&0{target} <white>в командном сражении!"
+    denied: "<color:#fb6500>[⚔] <white>Игрок команды &x&F&E&F&E&0&0{target} <white>отказал вам в &x&F&F&7&A&0&0Кровавом сражении&f!"
+    cancel: "<color:#fb6500>[⚔] <white>Вы успешно отменили запрос &x&F&F&7&A&0&0Кровавого сражения <white>с командой игрока &x&F&E&F&E&0&0{target}&f!"
+    canceled: "<color:#fb6500>[⚔] <white>Игрок отменил запрос &x&F&F&7&A&0&0Кровавого сражения <white>с вашей командой!"
+  can-not-use-team-command-in-search: "&x&f&b&0&0&0&0[✘] Ошибка! &fВы не можете сделать это пока находитесь в поиске!"
+  search:
+    already-searching: "<color:#fb6500>[⚔] <white>Вы уже находитесь в &x&F&E&F&E&0&0очереди&f!"
+    timeout: "<color:#fb6500>[⚔] <white>Время ожидания &x&F&E&F&E&0&0дуэли &fвышло!"
+    started: "<color:#fb6500>[⚔] <white>Вы успешно начали поиск &x&F&E&F&E&0&0{type}&f!"
+    found: "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{target} &fпринял вызов на &x&F&E&6&6&0&0Дуэль!"
+    not-searching: "<color:#fb6500>[⚔] <white>Поиск не был начат!"
+    cancelled: "<color:#fb6500>[⚔] <white>Поиск дуэли был успешно &x&F&E&F&E&0&0Отменен!"
+    team-started: "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{leader} &fначал поиск &x&F&E&F&E&0&0{type}&f!"
+  wand:
+    first-position-select: "&c> &fПервая точка установлена"
+    second-position-select: "&c> &fВторая точка установлена"
+  duel-finish-success: "&c> &fДуэль завершена победой {winner}, проигравший {loser}"
+  duel-finish-player-not-found: "&c> &fИгрок не найден"
+  duel-stop-all-success: "&c> &fВсе дуэли остановлены"
+  duel-stop-success: "&c> &fДуэль {id}, остановлена"
+  duel-finish-not-found: "&c> &fДуэль не найдена"
+  parse:
+    item:
+      empty-hand: "&c> &fДержите предмет в руке, прежде чем сохранять его в конфиг."
+      saved: "&c> &fПредмет сохранён в секции «&e{section}&f» в items.yml"
+  team:
+    help:
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team &f- помощь по командным дуэлям"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team create &f- создать командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team invite [игрок] &f- пригласить игрока в командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team kick [игрок] &f- кикнуть игрока из командной дуэли"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team leave &f- покинуть командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team disband &f- распустить командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team info &f- показать информацию о команде"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team code &f- показать текущий код приглашения в команду"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team join [код] &f- присоединиться к команде используя код приглашения"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team search &f- начать поиск командной дуэли"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team accept [игрок] &f- принять приглашение в командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team deny [игрок] &f- отказать в приглашении на командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team cancel [игрок] &f- отменить запрос на приглашение в командную дуэль"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team war [игрок] &f- отправить запрос на &x&F&E&6&6&0&0Кровавое сражение &fдругой команде"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team war accept [игрок] &f- принять приглашение в &x&F&E&6&6&0&0Кровавом сражении"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team war deny [игрок] &f- отказать в приглашении на кровавое сражение"
+      - "<color:#fb6500>[⚔] &x&f&b&f&8&0&0/duel team war cancel [игрок] &f- отменить запрос на приглашение в командное сражение"
+    create: "<color:#fb6500>[⚔] <white>Командная дуэль успешно сформирована!"
+    disband: "<color:#fb6500>[⚔] <white>Командная дуэль успешно расформирована!"
+    disband-to-team: "<color:#fb6500>[⚔] <white>Команда игрока &x&f&b&f&8&0&0{target} &fбыла расформирована!"
+    already-in-team-create: "<color:#fb6500>[⚔] <white>Командная дуэль уже сформирована!"
+    not-in-team: "<color:#fb6500>[⚔] <white>Вы не находитесь в дуэльной команде!"
+    not-leader: "<color:#fb6500>[⚔] <white>Вы не являетесь лидером этой команды!"
+    you-joined-in-team: "<color:#fb6500>[⚔] <white>Вы успешно присоединились к команде &x&f&b&f&8&0&0{target}&f!"
+    player-joined-in-team: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} &fприсоединился к нашей команде!"
+    join:
+      not-found: "<color:#fb6500>[⚔] <white>Не удалось найти команду по указанному коду приглашения."
+      you-joined: "<color:#fb6500>[⚔] <white>Вы успешно присоединились к команде игрока &x&f&b&f&8&0&0{leader}!"
+      player-joined: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{player} &fприсоединился к нашей команде используя код приглашения!"
+      already-in-team: "&x&f&b&0&0&0&0[✘] Ошибка! &fВы не можете сделать это пока находитесь в команде!"
+    code:
+      - "<color:#fb6500>[⚔] <white>Отправьте команду с кодом друзьям,"
+      - "<color:#fb6500>|| <white>чтобы они смогли присоединиться"
+      - "<color:#fb6500>|| <white>к Вашей команде: &x&f&b&f&8&0&0/duel team join {code}"
+      - "<green><click:copy_to_clipboard:'/duel team join {code}'>[Скопировать]</click>"
+    leave:
+      leader-cant-leave: "<color:#fb6500>[⚔] <white>Вы не можете сделать это будучи лидером!"
+      you-left: "<color:#fb6500>[⚔] <white>Вы успешно покинули командную дуэль!"
+      player-left: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} <white>покинул нашу команду!"
+    info:
+      members: "<color:#fb6500>[⚔] <white>Участники команды &x&f&b&f&8&0&0({count})&f: &x&F&F&5&B&0&0{list}"
+    kick:
+      player-kicked: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} &fуспешно был кикнут из вашей команды!"
+      you-kicked: "<color:#fb6500>[⚔] <white>Вы были кикнуты из команды &x&f&b&f&8&0&0{target}&f!"
+      player-is-not-in-your-team: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} &fне находится в нашей команде!"
+    invite:
+      player-cancel-invite: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} &fотменил запрос на командную дуэль с вами!"
+      player-deny-invite: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} &fотказал вам в приглашении в вашу команду!"
+      player-is-in-team: "<color:#fb6500>[⚔] <white>Игрок уже в команде!"
+      invite-cancel: "<color:#fb6500>[⚔] <white>Вы успешно &x&f&b&f&8&0&0отменили &fзапрос командной дуэли игроку &x&f&b&f&8&0&0{target}&f!"
+      invite-send:
+        - "<color:#fb6500>[⚔] <white>Запрос на командную дуэль успешно отправлен игроку &x&f&b&f&8&0&0{target}&f!"
+        - "              <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы отменить запрос'><click:run_command:/duel team cancel {target}><color:#E40000>[Отменить запрос]</click>"
+      request:
+        - "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{target} &fприглашает вас в свою дуэльную команду!"
+        - "          <hover:show_text:'<color:#E40000>➥ Нажмите<white>, что бы отклонить запрос'><click:run_command:/duel team deny><color:#E40000>[Отклонить]</click> <hover:show_text:'<color:#0DE400>➥ Нажмите<white>, что бы принять запрос'><click:run_command:/duel team accept><color:#0DE400>[Принять]</click>"
+  player-offline: "<color:#fb6500>[⚔] <white>Игрок не найден!"
+  can-not-use-command-in-team: "&x&f&b&0&0&0&0[✘] Ошибка! &fВы не можете сделать это пока находитесь в команде!"
+  full-inventory: "&cНекоторые предметы не поместились в инвентарь при синхронизации. Освободите место и перезайдите"
+  self-duel: "<color:#fb6500>[⚔] <white>Вы не можете использовать свой ник!"
+  waiting-players: "<color:#fb6500>[⚔] <white>Ожидание игроков..."
+  player-joined: "<color:#fb6500>[⚔] <white>Игрок &x&f&b&f&8&0&0{target} &fприсоединился к дуэли!"
+  already-in-duel: "&x&f&b&0&0&0&0[✘] Ошибка! &fВы не можете использовать эту &x&F&E&F&E&0&0Команду&f в дуэлях!"
+  unable-find-arena: "<color:#fb6500>[⚔] <white>Свободных арен нет"
+  target-in-duel: "<color:#fb6500>[⚔] <white>Уже находится в дуэли"
+  already-invite: "<color:#fb6500>[⚔] <white>Вы уже отправляли запрос."
+  loser-raiting: "<color:#fb6500>[⚔] <white>Потеряно рейтинга: &x&F&E&F&E&0&0{lost-raiting}. <white>Текущий рейтинг: &x&F&E&F&E&0&0{raiting}"
+  winner-raiting: "<color:#fb6500>[⚔] <white>Получено рейтинга: <color:#0DE400>{win-raiting}. <white>Текущий рейтинг: &x&F&E&F&E&0&0{raiting}"
+  player-dead: "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{dead} <white>был убит игроком <color:#E40000>{killer}"
+  not-enough-tokens:
+    - '&x&f&b&0&0&0&0[✘] Ошибка! &fУ Вас не хватает &x&0&d&f&b&0&0Токенов&f!'
+    - '&f   &fНе беда, их можно купить на &x&f&b&f&8&0&0FunTime.su'
+  to-low-bet-amount: "<color:#E40000>[✘] Ошибка! &fВы указали слишком низкую ставку!"
+  bet-too-high: "<color:#E40000>[✘] Ошибка! &fВаша ставка превышает максимальный &x&f&b&f&8&0&0Лимит&f!"
+  not-enough-balance: "<color:#E40000>[✘] Ошибка! &fНе достаточно &x&f&b&f&8&0&0Монет&f!"
+  not-enough-money-to-give-back: " <color:#E40000>[✘] Ошибка! &fСтавка не была списана или начислена поскольку отсутствует необходимые &x&f&b&f&8&0&0Монеты &fили не найдены &x&f&b&f&8&0&0Игроки&f."
+  successfully-reset-profile: "<color:#fb6500>[⚔] <white>Вы успешно обнулили вашу статистику"
+  player-left: "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{target} &fпокинул дуэль!"
+  no-request-duel: "<color:#E40000>[✘] Ошибка! &fНечего {action}!"
+  start-timer: "<color:#fb6500>[⚔] <white>Дуэль начнется через &x&F&E&F&E&0&0{time} секунды"
+  duel-finished: "<color:#fb6500>[⚔] <white>Дуэль завершена!"
+  duel-started: "<color:#fb6500>[⚔] <white>Дуэль началась!"
+  time-out:
+    sender: "<color:#fb6500>[⚔] <white>Запрос на дуэль с игроком от &x&F&E&F&E&0&0{player} &fавтоматически отменен из-за таймаута!"
+    receiver: "<color:#fb6500>[⚔] <white>Запрос на дуэль от &x&F&E&F&E&0&0{player}&f отменён. Время &x&f&b&0&0&0&0Истекло&f!"
+  armor: "<color:#fb6500>[⚔] <white>Вы должны надеть игроком от &x&F&E&F&E&0&0Алмазную&f или &x&F&E&F&E&0&0Незеритовую&f броню чтобы начать дуэль!"
+  no-perm: "<color:#E40000>[✘] Ошибка! &fУ вас не достаточно &x&f&b&f&8&0&0Прав&f!"
+  ignore:
+    enabled: "<color:#fb6500>[⚔] <white>Уведомления Игнорирование входящих запросов <green>Включено"
+    disabled: "<color:#fb6500>[⚔] <white>Игнорирование входящих запросов <red>Выключено"
+    cant-invite: "<color:#fb6500>[⚔] <white>Игрок <color:#fbfb00>{target} <white>отключил уведомления."
+  cancel:
+    invite-canceled: "<color:#fb6500>[⚔] <white>Игрок <color:#fbfb00>{target} <white>передумал сражаться с Вами!"
+    invite-cancel: "<color:#fb6500>[⚔] <white>Вы успешно отменили запрос игроку <color:#F7BA03>{target}<white>!"
+  invite:
+    - "<color:#fb6500>[⚔] <white>Вы успешно отправили запрос на дуэль игроку &x&F&E&F&E&0&0{target}<white>!"
+    - "              <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы отменить запрос'><click:run_command:/duel cancel><color:#E40000>[Отменить запрос]</click>"
+  request:
+    - "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{target} &fвызвал Вас на <color:#fb6500>Дуэль&f!"
+    - "          <hover:show_text:'<color:#E40000>➥ Нажмите<white>, что бы отклонить вызов'><click:run_command:/duel deny><color:#E40000>[Отклонить]</click> <hover:show_text:'<color:#0DE400>➥ Нажмите<white>, что бы принять вызов'><click:run_command:/duel accept><color:#0DE400>[Принять]</click>"
+  duel-lost:
+    - "<color:#fb6500>[⚔] <color:#E40000>Поражение&f! Противники одержали победу!"
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы уйти'><click:run_command:/duel leave><color:#E40000>[Покинуть дуэль]</click>"
+  duel-win:
+    - "<color:#fb6500>[⚔] Ваша команда одержала <green>Победу<white>! Поздравляем!"
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы телепортироваться с арены раньше времени'><click:run_command:/duel leave><color:#E40000> [Покинуть дуэль]</click>"
+  cannot-surrender:
+    - "&x&F&F&0&0&0&0[✘] &fВы не можете сдаться сейчас."
+  duel-surrender-self:
+    - "<color:#fb6500>[⚔] <white>Вы сдаётесь!"
+  duel-surrender-other:
+    - "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{player} <white>сдается! Если все игроки сдадутся, дуэль закончится ничьей."
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы сдаться'><click:run_command:/duel draw><color:#E40000>[Сдаться]</click>"
+  duel-draw-self:
+    - "<color:#fb6500>[⚔] <white>Вы сдаётесь!"
+  duel-draw-other:
+    - "<color:#fb6500>[⚔] <white>Игрок &x&F&E&F&E&0&0{player} <white>сдается! Если все игроки сдадутся, дуэль закончится ничьей."
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы сдаться'><click:run_command:/duel draw><color:#E40000>[Сдаться]</click>"
+  duel-draw-accepted:
+    - "<color:#fb6500>[⚔] <white>Игроки сдаются, ничья!"
+  duel-draw:
+    - "<color:#fb6500>[⚔] <white>Дуэль завершена!"
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы телепортироваться с арены раньше времени'><click:run_command:/duel leave><color:#E40000> [Покинуть дуэль]</click>"
+  cannot-draw-team:
+    - "&x&F&F&0&0&0&0[✘] &fВы должны быть единственными в команде чтобы сдаться."
+  duel-idle-warning:
+    - "<color:#fb6500>[⚔] <white>Если вы не можете победить соперника, вы можете &x&F&E&F&E&0&0Сдаться&f."
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы сдаться'><click:run_command:/duel draw><color:#E40000>[Сдаться]</click>"
+  countdown-lines:
+    - "<color:#fb6500>[⚔] <white>Вы будете автоматически перемещены через &x&F&E&F&E&0&0{time} секунд"
+    - "               <hover:show_text:'<color:#E40000>➥ Нажмите<white>, чтобы телепортироваться с арены раньше времени'><click:run_command:/duel leave><color:#E40000> [Покинуть дуэль]</click>"
+  leave-warning: "&x&F&F&0&0&0&0[✘] Внимание! &fВы потеряете свои вещи если выйдите из дуэли прямо сейчас. Введите команду &x&F&E&F&E&0&0ещё раз&f чтобы &x&F&F&0&0&0&0покинуть &fдуэль."
