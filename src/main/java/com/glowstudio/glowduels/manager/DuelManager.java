@@ -1,13 +1,9 @@
 package com.glowstudio.glowduels.manager;
 
 import com.glowstudio.glowduels.GlowDuelsPlugin;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
+import com.glowstudio.glowduels.arena.Arena;
+import com.glowstudio.glowduels.security.PermissionManager;
+import org.bukkit.*;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -25,6 +21,7 @@ public class DuelManager {
     private final Map<UUID, UUID> activeDuels = new HashMap<>();
     private final Map<UUID, ItemStack[]> savedInventories = new HashMap<>();
     private final Map<UUID, ItemStack[]> savedArmor = new HashMap<>();
+    private final Map<UUID, Location> savedLocations = new HashMap<>();
 
     public DuelManager(GlowDuelsPlugin plugin) {
         this.plugin = plugin;
@@ -32,8 +29,10 @@ public class DuelManager {
 
     public void openMainMenu(Player player) {
         Inventory inv = Bukkit.createInventory(null, 27, ChatColor.translateAlternateColorCodes('&', "&8Дуэли • Выбор режима"));
-        inv.setItem(11, createGuiItem(Material.DIAMOND_SWORD, "&a&lДуэль без ставки", "&7Классический бой 1х1 без потерь.", Collections.singletonList("&eНажми, чтобы встать в очередь")));
-        inv.setItem(15, createGuiItem(Material.GOLD_INGOT, "&6&lДуэль со ставкой", "&7Бой на игровую валюту.", Arrays.asList("&7Ставка: &6500 монет", "&eНажми, чтобы встать в очередь")));
+
+        inv.setItem(11, createGuiItem(Material.DIAMOND_SWORD, "&c&lОбычная дуэль", "&7Классический бой 1х1 без сохранения инвентаря.", Collections.singletonList("&eНажми, чтобы встать в очередь")));
+        inv.setItem(15, createGuiItem(Material.GOLD_INGOT, "&6&lДуэль со ставкой", "&7Бой 1х1 на игровую валюту (500 монет).", Collections.singletonList("&eНажми, чтобы встать в очередь")));
+
         player.openInventory(inv);
     }
 
@@ -54,31 +53,34 @@ public class DuelManager {
     }
 
     public void handleMenuClick(Player player, int slot) {
+        if (!PermissionManager.canPlay(player)) {
+            player.sendMessage(ChatColor.RED + "У вас нет прав для участия в дуэлях!");
+            player.closeInventory();
+            return;
+        }
+
         if (slot == 11) {
             player.closeInventory();
-            if (queueWithoutBet.contains(player.getUniqueId())) {
-                queueWithoutBet.remove(player.getUniqueId());
-                player.sendMessage(ChatColor.RED + "Вы вышли из очереди дуэлей без ставки.");
-            } else {
-                queueWithoutBet.add(player.getUniqueId());
-                player.sendMessage(ChatColor.GREEN + "Вы встали в очередь дуэлей без ставки.");
-                checkQueue(false);
-            }
+            toggleQueue(player, queueWithoutBet, false);
         } else if (slot == 15) {
             player.closeInventory();
-            if (queueWithBet.contains(player.getUniqueId())) {
-                queueWithBet.remove(player.getUniqueId());
-                player.sendMessage(ChatColor.RED + "Вы вышли из очереди дуэлей со ставкой.");
-            } else {
-                queueWithBet.add(player.getUniqueId());
-                player.sendMessage(ChatColor.GOLD + "Вы встали в очередь дуэлей со ставкой (500 монет).");
-                checkQueue(true);
-            }
+            toggleQueue(player, queueWithBet, true);
         }
     }
 
-    private void checkQueue(boolean bet) {
-        Set<UUID> queue = bet ? queueWithBet : queueWithoutBet;
+    private void toggleQueue(Player player, Set<UUID> queue, boolean bet) {
+        UUID uuid = player.getUniqueId();
+        if (queue.contains(uuid)) {
+            queue.remove(uuid);
+            player.sendMessage(ChatColor.RED + "Вы вышли из очереди дуэлей.");
+        } else {
+            queue.add(uuid);
+            player.sendMessage(ChatColor.GREEN + "Вы успешно встали в очередь дуэлей!");
+            checkQueue(queue, bet);
+        }
+    }
+
+    private void checkQueue(Set<UUID> queue, boolean bet) {
         if (queue.size() >= 2) {
             Iterator<UUID> it = queue.iterator();
             UUID p1UUID = it.next();
@@ -96,20 +98,24 @@ public class DuelManager {
     }
 
     public void startDuel(Player p1, Player p2) {
+        queueWithoutBet.remove(p1.getUniqueId());
+        queueWithoutBet.remove(p2.getUniqueId());
+        queueWithBet.remove(p1.getUniqueId());
+        queueWithBet.remove(p2.getUniqueId());
+
         activeDuels.put(p1.getUniqueId(), p2.getUniqueId());
         activeDuels.put(p2.getUniqueId(), p1.getUniqueId());
 
         savePlayerState(p1);
         savePlayerState(p2);
 
+        Arena arena = plugin.getArenaManager().getRandomArena();
+
+        p1.teleport(arena.getSpawn1());
+        p2.teleport(arena.getSpawn2());
+
         setupDuelGear(p1);
         setupDuelGear(p2);
-
-        Location spawn1 = new Location(p1.getWorld(), 0.5, 100, -10.5, 0, 0);
-        Location spawn2 = new Location(p2.getWorld(), 0.5, 100, 10.5, 180, 0);
-
-        p1.teleport(spawn1);
-        p2.teleport(spawn2);
 
         p1.sendTitle(ChatColor.RED + "БОЙ!", ChatColor.YELLOW + "Противник: " + p2.getName(), 10, 40, 10);
         p2.sendTitle(ChatColor.RED + "БОЙ!", ChatColor.YELLOW + "Противник: " + p1.getName(), 10, 40, 10);
@@ -119,6 +125,7 @@ public class DuelManager {
     }
 
     private void savePlayerState(Player player) {
+        savedLocations.put(player.getUniqueId(), player.getLocation());
         savedInventories.put(player.getUniqueId(), player.getInventory().getContents());
         savedArmor.put(player.getUniqueId(), player.getInventory().getArmorContents());
         player.getInventory().clear();
@@ -141,22 +148,22 @@ public class DuelManager {
         Player winner = Bukkit.getPlayer(winnerUUID);
 
         loser.sendTitle(ChatColor.DARK_RED + "ПОРАЖЕНИЕ", ChatColor.GRAY + "Вы проиграли дуэль", 10, 40, 10);
-        restorePlayerState(loser);
-        loser.teleport(loser.getWorld().getSpawnLocation());
         plugin.getProfileManager().addLoss(loser.getUniqueId());
+
+        loser.getInventory().clear();
+        teleportBack(loser);
 
         if (winner != null && winner.isOnline()) {
             winner.sendTitle(ChatColor.GREEN + "ПОБЕДА!", ChatColor.YELLOW + "Вы выиграли дуэль", 10, 40, 10);
             restorePlayerState(winner);
-            winner.teleport(winner.getWorld().getSpawnLocation());
             winner.sendMessage(ChatColor.GREEN + "Вы одержали победу!");
             plugin.getProfileManager().addWin(winner.getUniqueId());
-
             spawnVictoryFirework(winner.getLocation());
         }
     }
 
     private void spawnVictoryFirework(Location loc) {
+        if (loc.getWorld() == null) return;
         Firework fw = loc.getWorld().spawn(loc, Firework.class);
         FireworkMeta meta = fw.getFireworkMeta();
         meta.addEffect(FireworkEffect.builder().flicker(true).trail(true).withColor(Color.GREEN).withFade(Color.YELLOW).with(FireworkEffect.Type.BALL_LARGE).build());
@@ -174,15 +181,35 @@ public class DuelManager {
             player.getInventory().setArmorContents(savedArmor.get(player.getUniqueId()));
             savedArmor.remove(player.getUniqueId());
         }
+        teleportBack(player);
+    }
+
+    private void teleportBack(Player player) {
+        if (savedLocations.containsKey(player.getUniqueId())) {
+            player.teleport(savedLocations.get(player.getUniqueId()));
+            savedLocations.remove(player.getUniqueId());
+        } else {
+            player.teleport(player.getWorld().getSpawnLocation());
+        }
     }
 
     public boolean isInDuel(Player player) {
         return activeDuels.containsKey(player.getUniqueId());
     }
 
+    public UUID getOpponent(UUID playerUUID) {
+        return activeDuels.get(playerUUID);
+    }
+
     public void shutdown() {
         queueWithoutBet.clear();
         queueWithBet.clear();
+        for (UUID uuid : new HashSet<>(activeDuels.keySet())) {
+            Player p = Bukkit.getPlayer(uuid);
+            if (p != null && p.isOnline()) {
+                restorePlayerState(p);
+            }
+        }
         activeDuels.clear();
     }
 }

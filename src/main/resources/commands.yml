@@ -1,0 +1,11 @@
+blocked-commands:
+  - "/spawn"
+  - "/home"
+  - "/tp"
+  - "/fly"
+  - "/warp"
+  - "/rtp"
+  - "/hub"
+  - "/lobby"
+  - "/gm"
+  - "/gamemode"

@@ -1,23 +1,22 @@
 package com.glowstudio.glowduels.listener;
 
 import com.glowstudio.glowduels.GlowDuelsPlugin;
+import com.glowstudio.glowduels.security.PermissionManager;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class DuelListener implements Listener {
 
     private final GlowDuelsPlugin plugin;
-    private final List<String> forbiddenCommands = Arrays.asList("/spawn", "/home", "/tp", "/fly", "/warp", "/rtp", "/hub", "/lobby");
 
     public DuelListener(GlowDuelsPlugin plugin) {
         this.plugin = plugin;
@@ -56,14 +55,26 @@ public class DuelListener implements Listener {
     public void onCommand(PlayerCommandPreprocessEvent event) {
         Player player = event.getPlayer();
         if (plugin.getDuelManager().isInDuel(player)) {
-            String msg = event.getMessage().toLowerCase();
-            for (String cmd : forbiddenCommands) {
-                if (msg.startsWith(cmd)) {
+            if (PermissionManager.hasPermission(player, "glowduels.bypass.commands")) {
+                return;
+            }
+            String message = event.getMessage().toLowerCase();
+            List<String> blocked = plugin.getCommandsConfig().getBlockedCommands();
+            for (String cmd : blocked) {
+                if (message.startsWith(cmd.toLowerCase())) {
                     event.setCancelled(true);
                     player.sendMessage(ChatColor.RED + "Нельзя использовать эту команду во время дуэли!");
-                    return;
+                    break;
                 }
             }
+        }
+    }
+
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent event) {
+        Player player = event.getPlayer();
+        if (plugin.getDuelManager().isInDuel(player)) {
+            event.setCancelled(true);
         }
     }
 }

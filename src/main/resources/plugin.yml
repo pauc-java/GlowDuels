@@ -1,20 +1,23 @@
 name: GlowDuels
-version: 1.0.0
+version: 1.1
 main: com.glowstudio.glowduels.GlowDuelsPlugin
 api-version: 1.16
-
 commands:
   duels:
     aliases: [duel, 1vs1, ff]
     permission: glowduels.player
-
+  stavka:
+    aliases: [bet]
+    permission: glowduels.player
   glowduels:
     aliases: [gduels]
     permission: glowduels.admin
-
 permissions:
   glowduels.player:
     default: true
-
   glowduels.admin:
+    default: op
+  glowduels.keepinventory:
+    default: op
+  glowduels.bypass.commands:
     default: op

@@ -2,6 +2,7 @@ package com.glowstudio.glowduels.command;
 
 import com.glowstudio.glowduels.GlowDuelsPlugin;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,10 +19,35 @@ public class DuelCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
+            sender.sendMessage("Only players can use this command.");
             return true;
         }
 
         Player player = (Player) sender;
+
+        if (command.getName().equalsIgnoreCase("stavka") || (args.length > 0 && args[0].equalsIgnoreCase("stavka"))) {
+            if (args.length < 3) {
+                player.sendMessage(ChatColor.RED + "Использование: /stavka <ник_игрока> <сумма>");
+                return true;
+            }
+
+            Player target = Bukkit.getPlayer(args[1]);
+            if (target == null || !target.isOnline()) {
+                player.sendMessage(ChatColor.RED + "Игрок не найден или оффлайн.");
+                return true;
+            }
+
+            double amount;
+            try {
+                amount = Double.parseDouble(args[2]);
+            } catch (NumberFormatException e) {
+                player.sendMessage(ChatColor.RED + "Неверный формат суммы!");
+                return true;
+            }
+
+            plugin.getBetManager().placeBet(player, target, amount);
+            return true;
+        }
 
         if (args.length > 0 && args[0].equalsIgnoreCase("spectate") && args.length > 1) {
             Player target = Bukkit.getPlayer(args[1]);
